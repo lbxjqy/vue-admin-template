@@ -1,3 +1,11 @@
+/*
+ * @Author: your name
+ * @Date: 2020-04-05 19:59:39
+ * @LastEditTime: 2020-04-05 20:46:47
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: /api/Users/linboxuan/vscodeProjects/vue-admin-template/src/main.js
+ */
 import Vue from 'vue'
 
 import 'normalize.css/normalize.css' // A modern alternative to CSS resets
@@ -7,6 +15,9 @@ import 'element-ui/lib/theme-chalk/index.css'
 import locale from 'element-ui/lib/locale/lang/en' // lang i18n
 
 import '@/styles/index.scss' // global css
+
+import mavonEditor from 'mavon-editor'
+import 'mavon-editor/dist/css/index.css' // markdown
 
 import App from './App'
 import store from './store'
@@ -32,6 +43,8 @@ if (process.env.NODE_ENV === 'production') {
 Vue.use(ElementUI, { locale })
 // 如果想要中文版 element-ui，按如下方式声明
 // Vue.use(ElementUI)
+
+Vue.use(mavonEditor)
 
 Vue.config.productionTip = false
 

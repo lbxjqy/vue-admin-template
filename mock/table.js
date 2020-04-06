@@ -1,7 +1,15 @@
+/*
+ * @Author: your name
+ * @Date: 2020-04-05 19:59:39
+ * @LastEditTime: 2020-04-06 12:56:16
+ * @LastEditors: your name
+ * @Description: In User Settings Edit
+ * @FilePath: /api/Users/linboxuan/vscodeProjects/vue-admin-template/mock/table.js
+ */
 import Mock from 'mockjs'
 
 const data = Mock.mock({
-  'items|30': [{
+  'items|10': [{
     id: '@id',
     title: '@sentence(10, 20)',
     'status|1': ['published', 'draft', 'deleted'],

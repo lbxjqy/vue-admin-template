@@ -73,6 +73,18 @@ export const constantRoutes = [
         name: 'Tree',
         component: () => import('@/views/tree/index'),
         meta: { title: 'Tree', icon: 'tree' }
+      },
+      {
+        path: 'add',
+        name: 'articleAdd',
+        component: () => import('@/views/article/add'),
+        meta: { title: '文章添加', icon: 'tree' }
+      },
+      {
+        path: 'list',
+        name: 'articleList',
+        component: () => import('@/views/article/list'),
+        meta: { title: '文章列表', icon: 'tree' }
       }
     ]
   },
