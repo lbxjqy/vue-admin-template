@@ -90,6 +90,28 @@ export const constantRoutes = [
   },
 
   {
+    path: '/tag',
+    component: Layout,
+    redirect: '/tag/list',
+    name: 'Tag',
+    meta: { title: 'Tag', icon: 'example' },
+    children: [
+      {
+        path: 'list',
+        name: 'TagList',
+        component: () => import('@/views/tag/list'),
+        meta: { title: '全部标签', icon: 'table' }
+      },
+      {
+        path: 'add',
+        name: 'TagAdd',
+        component: () => import('@/views/tag/add'),
+        meta: { title: '新增标签', icon: 'tree' }
+      },
+    ]
+  },
+
+  {
     path: '/form',
     component: Layout,
     children: [
