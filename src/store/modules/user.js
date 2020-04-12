@@ -1,3 +1,11 @@
+/*
+ * @Author: your name
+ * @Date: 2020-04-05 19:59:39
+ * @LastEditTime: 2020-04-11 04:23:45
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: /api/Users/linboxuan/vscodeProjects/vue-admin-template/src/store/modules/user.js
+ */
 import { login, logout, getInfo } from '@/api/user'
 import { getToken, setToken, removeToken } from '@/utils/auth'
 import { resetRouter } from '@/router'
@@ -30,14 +38,17 @@ const mutations = {
 const actions = {
   // user login
   login({ commit }, userInfo) {
+    console.log("user",userInfo)
     const { username, password } = userInfo
     return new Promise((resolve, reject) => {
-      login({ username: username.trim(), password: password }).then(response => {
-        const { data } = response
+      console.log("22222")
+      login({ username: username.trim(), password: password }).then(data => {
+        console.log(data)
         commit('SET_TOKEN', data.token)
         setToken(data.token)
         resolve()
       }).catch(error => {
+        console.log("err",error)
         reject(error)
       })
     })

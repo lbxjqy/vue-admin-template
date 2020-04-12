@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2020-04-05 20:32:41
- * @LastEditTime: 2020-04-05 23:53:35
+ * @LastEditTime: 2020-04-13 04:11:59
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /api/Users/linboxuan/vscodeProjects/vue-admin-template/src/views/article/add.vue
@@ -12,7 +12,7 @@
       v-model="title"
       type="text"
       placeholder="请输入标题"
-      maxlength="10"
+      maxlength="50"
       show-word-limit
       value-key
     />
@@ -20,8 +20,6 @@
       v-model="Tagvalue"
       multiple
       filterable
-      allow-create
-      default-first-option
       placeholder="请选择文章标签"
       class="tag"
     >
@@ -45,6 +43,9 @@
 </template>
 
 <script>
+import { articleCreate } from '@/api/article'
+import { Message } from 'element-ui'
+
 export default {
   data() {
     return {
@@ -73,10 +74,19 @@ export default {
       var params = {
         title: this.title,
         describe: this.describe,
-        Tagvalue: this.Tagvalue,
+        tag: this.Tagvalue,
         value: this.value
       }
       console.log(params)
+      articleCreate(params).then(response => {
+        Message({
+          message: response.msg || 'Error',
+          type: 'success',
+          duration: 5 * 1000
+        })
+      }).catch(err => {
+        console.log(err)
+      })
     }
   }
 }

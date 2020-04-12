@@ -1,3 +1,11 @@
+/*
+ * @Author: your name
+ * @Date: 2020-04-05 19:59:39
+ * @LastEditTime: 2020-04-10 23:04:53
+ * @LastEditors: your name
+ * @Description: In User Settings Edit
+ * @FilePath: /api/Users/linboxuan/vscodeProjects/vue-admin-template/mock/index.js
+ */
 import Mock from 'mockjs'
 import { param2Obj } from '../src/utils'
 
@@ -53,7 +61,7 @@ export function mockXHR() {
 // for mock server
 const responseFake = (url, type, respond) => {
   return {
-    url: new RegExp(`${process.env.VUE_APP_BASE_API}${url}`),
+    url: 'localhost:3000',
     type: type || 'get',
     response(req, res) {
       console.log('request invoke:' + req.path)

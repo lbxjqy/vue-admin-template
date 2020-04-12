@@ -20,13 +20,13 @@
 </template>
 
 <script>
+import { tagCreate } from '@/api/tag'
+
 export default {
   data() {
     return {
-      value: '',
       title: '',
       describe: '',
-      Tagvalue: [],
       options: [
         {
           value: 'HTML',
@@ -46,12 +46,14 @@ export default {
   methods: {
     submit() {
       var params = {
-        title: this.title,
-        describe: this.describe,
-        Tagvalue: this.Tagvalue,
-        value: this.value
+        name: this.title,
+        describe: this.describe
       }
-      console.log(params)
+      tagCreate(params).then(res => {
+        console.log(res)
+      }).catch(err => {
+        console.log(err)
+      })
     }
   }
 }
