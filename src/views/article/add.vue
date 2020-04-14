@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2020-04-05 20:32:41
- * @LastEditTime: 2020-04-13 04:11:59
+ * @LastEditTime: 2020-04-14 23:23:16
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /api/Users/linboxuan/vscodeProjects/vue-admin-template/src/views/article/add.vue
@@ -25,9 +25,9 @@
     >
       <el-option
         v-for="item in options"
-        :key="item.value"
-        :label="item.label"
-        :value="item.value"
+        :key="item._id"
+        :label="item.name"
+        :value="item._id"
       />
     </el-select>
     <el-input
@@ -44,6 +44,7 @@
 
 <script>
 import { articleCreate } from '@/api/article'
+import { getTagNameList } from '@/api/tag'
 import { Message } from 'element-ui'
 
 export default {
@@ -69,7 +70,17 @@ export default {
       ]
     }
   },
+  created() {
+    this.getTagNameList()
+  },
   methods: {
+    getTagNameList() {
+      getTagNameList().then(response => {
+        this.options = response.data
+      }).catch(err => {
+        console.log(err)
+      })
+    },
     submit() {
       var params = {
         title: this.title,
