@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2020-04-05 20:32:41
- * @LastEditTime: 2020-04-14 23:23:16
+ * @LastEditTime: 2020-04-15 16:09:11
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /api/Users/linboxuan/vscodeProjects/vue-admin-template/src/views/article/add.vue
@@ -25,9 +25,9 @@
     >
       <el-option
         v-for="item in options"
-        :key="item._id"
+        :key="item.name"
         :label="item.name"
-        :value="item._id"
+        :value="item.name"
       />
     </el-select>
     <el-input
@@ -54,20 +54,7 @@ export default {
       title: '',
       describe: '',
       Tagvalue: [],
-      options: [
-        {
-          value: 'HTML',
-          label: 'HTML'
-        },
-        {
-          value: 'CSS',
-          label: 'CSS'
-        },
-        {
-          value: 'JavaScript',
-          label: 'JavaScript'
-        }
-      ]
+      options: []
     }
   },
   created() {
@@ -86,7 +73,7 @@ export default {
         title: this.title,
         describe: this.describe,
         tag: this.Tagvalue,
-        value: this.value
+        content: this.value
       }
       console.log(params)
       articleCreate(params).then(response => {

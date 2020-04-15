@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2020-04-10 15:11:26
- * @LastEditTime: 2020-04-13 03:21:49
+ * @LastEditTime: 2020-04-15 23:48:27
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /api/Users/linboxuan/vscodeProjects/vue-admin-template/src/api/article.js
@@ -37,5 +37,13 @@ export function articleDelete(data) {
     url: '/api/article/delete',
     method: 'post',
     data
+  })
+}
+
+export function articleGetContent(id) {
+  return request({
+    url: '/api/article/getContent',
+    method: 'get',
+    params: { id }
   })
 }

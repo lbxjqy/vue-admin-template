@@ -85,6 +85,13 @@ export const constantRoutes = [
         name: 'articleList',
         component: () => import('@/views/article/list'),
         meta: { title: '文章列表', icon: 'tree' }
+      },
+      {
+        path: 'see/:id',
+        name: 'articleSee',
+        component: () => import('@/views/article/see'),
+        meta: { title: '文章查看', icon: 'tree' },
+        hidden: true
       }
     ]
   },
@@ -107,7 +114,7 @@ export const constantRoutes = [
         name: 'TagAdd',
         component: () => import('@/views/tag/add'),
         meta: { title: '新增标签', icon: 'tree' }
-      },
+      }
     ]
   },
 
