@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2020-04-05 20:31:41
- * @LastEditTime: 2020-04-16 00:35:54
+ * @LastEditTime: 2020-04-16 17:46:45
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /api/Users/linboxuan/vscodeProjects/vue-admin-template/src/views/article/list.vue
@@ -46,7 +46,9 @@
           <router-link :to="'/example/see/'+scope.row._id">
             <el-button type="primary" @click="handleLook">查看</el-button>
           </router-link>
-          <el-button type="primary" @click="handleModify">修改</el-button>
+          <router-link :to="'/example/edit/'+scope.row._id">
+            <el-button type="primary" @click="handleModify">修改</el-button>
+          </router-link>
           <el-button type="primary" @click="handleDelete(scope)">删除</el-button>
         </template>
       </el-table-column>
