@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2020-04-05 20:31:41
- * @LastEditTime: 2020-04-16 17:46:45
+ * @LastEditTime: 2020-04-17 23:22:41
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /api/Users/linboxuan/vscodeProjects/vue-admin-template/src/views/article/list.vue
@@ -33,7 +33,7 @@
       </el-table-column>
       <el-table-column label="标签" width="220" align="center">
         <template slot-scope="scope">
-          <span>{{ scope.row.tag|formatDescrive(this) }}</span>
+          <span>{{ scope.row.tag|formatDescribe(this) }}</span>
         </template>
       </el-table-column>
       <el-table-column label="更新时间" width="220" align="center">
@@ -78,7 +78,7 @@ export default {
       var seconds = date.getSeconds()
       return year + '-' + month + '-' + day + ' ' + hours + ':' + minutes + ' : ' + seconds
     },
-    formatDescrive(value) {
+    formatDescribe(value) {
       // let str;// 如果这么写则返回的字符串前面带有“undefined”
       let str = ''
       for (var i = 0; i < value.length; i++) {
